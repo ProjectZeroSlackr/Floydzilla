@@ -42,7 +42,7 @@ static void populate_credits() {
 			"Martin Kaltenbrunner", "Adam Johnston",
 		        "Matthew Westcott", "Nils Schneider", "Damien Marchal",
 			"Joshua Oreman", "Brett Ryland",
-			"Jonathan Bettencourt", "Dan Long",
+			"Jonathan Bettencourt", "Daniel Long", "Keripo",
 			0};
 	for (i = 0; cnames[i] != 0; i++)
 		len += strlen(cnames[i]) + 9;
@@ -53,7 +53,9 @@ static void populate_credits() {
 		strcat(buf, cnames[i]);
 		strcat(buf, "\n");
 	}
-	strcat(buf, "\nhttp://www.ipodlinux.org\n");
+	// KERIPO MOD
+	//strcat(buf, "\nhttp://www.ipodlinux.org\n");
+	strcat(buf, "\nwww.ipodlinux.org/zeroslackr\n");
 }
 
 static void populate_about() {

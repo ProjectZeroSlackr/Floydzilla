@@ -6,6 +6,10 @@
  *  Copyright (c) 2005 __MyCompanyName__. All rights reserved.
  *
  */
+
+// KERIPO MOD
+#include "../_mods.h"
+
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
@@ -13,7 +17,9 @@
 
 #define pNum	256		//integer multiplied by this value for precision
 						//used to lessen timing problems
-#define SONG_PATH "/hp/ddr/"
+// KERIPO MOD
+// defined in "_mods.h"
+//#define SONG_PATH "/hp/ddr/"
 						
 #define bLEFT_ARROW 1   //bits for arrow representation
 #define bDOWN_ARROW 2

@@ -16,6 +16,9 @@
  * Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+// KERIPO MOD
+#include "_mods.h"
+
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -41,7 +44,9 @@ typedef struct multiconvert_unit_type_ {
 
 extern void new_message_window(char * message);
 
-const char * multiconvert_file = "/etc/MultiConvert.tabl"; /* feel free to change this to whatever you want */
+// KERIPO MOD
+//const char * multiconvert_file = "/etc/MultiConvert.tabl"; /* feel free to change this to whatever you want */
+const char * multiconvert_file = MULTICONV_TBL;
 
 int                      multiconvert_num_unit_types = 0;
 multiconvert_unit_type * multiconvert_unit_types;

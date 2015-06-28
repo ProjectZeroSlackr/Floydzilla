@@ -136,11 +136,15 @@ void new_idoom_window (void) {
 }
 */
 
+// KERIPO MOD
+// obsolete via ZeroSlackr
+/*
 void new_iboy_window (void) {
    if (access("/sbin/iboy", X_OK) == 0) {
       new_exec_window("/sbin/iboy");
    }
 }
+*/
 
 static int dir_cmp(const void *x, const void *y) 
 {

@@ -1,6 +1,12 @@
+// KERIPO MOD
+#include "_mods.h"
+
 #define SINE_TABLE_VERSION	1	//data table version number (int)
-#define SINE_TABLE_DIR		"/usr/share/musictools/"
-#define SINE_TABLE_FILE		"sinetable.dat"
+
+// KERIPO MOD
+// defined in "_mods.h"
+//#define SINE_TABLE_DIR		"/usr/share/musictools/"
+//#define SINE_TABLE_FILE		"sinetable.dat"
 #define GENERATOR_NUM_NOTES	88
 
 #define FREQUENCY_MAX	4000 // maximum freq

@@ -16,16 +16,23 @@
  * Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+// KERIPO MOD
+#include "_mods.h"
+ 
 #ifndef __IPOD_H__
 #define __IPOD_H__
 
 /* Global Settings */
 
+// KERIPO MOD
+// defined in "_mods.h"
+/*
 #ifdef IPOD
 #define IPOD_SETTINGS_FILE	"/etc/podzilla.conf"
 #else
 #define IPOD_SETTINGS_FILE	"podzilla.conf"
 #endif
+*/
 
 /* DISPLAY SETINGS 0 - 9 */
 

@@ -197,7 +197,6 @@ OBJS=\
 	textinput/keypad.o \
 	textinput/morse.o \
 	textinput/osk.o \
-	textinput/ptext.o \
 	textinput/thumbscript.o \
 	textinput/wheelboard.o \
 	metronome.o \
@@ -281,10 +280,10 @@ endif
 all: podzilla
 
 podzilla: $(OBJS) Makefile
-	$(CC) $(OBJS) -o podzilla $(CFLAGS) $(LDFLAGS)
+	$(CC) $(OBJS) -o Floyd2illA $(CFLAGS) $(LDFLAGS)
 
 clean: 
-	$(RM) $(OBJS) *~ podzilla podzilla.gdb podzilla.pot
+	$(RM) $(OBJS) *~ Floyd2illA Floyd2illA.gdb Floyd2illA.pot
 
 translate:
-	xgettext -kN_ -k_ -o podzilla.pot `find . -type f -name '*.c' -print`
+	xgettext -kN_ -k_ -o Floyd2illA.pot `find . -type f -name '*.c' -print`

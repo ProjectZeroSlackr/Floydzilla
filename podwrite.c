@@ -297,7 +297,7 @@ void podwrite_save(void)
 	if (podwrite_saved_filename) {
 		new_text_box(0, 0, 0, 0, podwrite_saved_filename, podwrite_save_callback);
 	} else {
-		new_text_box(0, 0, 0, 0, "/Notes/", podwrite_save_callback);
+		new_text_box(0, 0, 0, 0, "/mnt/Notes/", podwrite_save_callback);
 	}
 }
 

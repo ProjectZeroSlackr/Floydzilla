@@ -23,6 +23,9 @@
  * Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+// KERIPO MOD
+#include "_mods.h"
+
 #include <stdlib.h>
 #include <stdio.h> 
 #include <time.h>
@@ -34,11 +37,13 @@ static GR_GC_ID tunnel_gc;
 static GR_WINDOW_INFO wi;
 static GR_WINDOW_ID temp_pixmap;
 
-#ifdef IPOD
-#define SAVEFILE "/home/.tunnel"
-#else
-#define SAVEFILE ".tunnel"
-#endif
+// KERIPO MOD
+// Already defined in "_mods.h"
+//#ifdef IPOD
+//#define SAVEFILE "/home/.tunnel"
+//#else
+//#define SAVEFILE ".tunnel"
+//#endif
 
 // Timer stuff
 static GR_TIMER_ID timer_id;
@@ -311,9 +316,13 @@ static int handle_event(GR_EVENT *event)
 static void readHighScore()
 {
 	FILE *input;
-	if ((input = fopen(SAVEFILE, "r")) == NULL)
+	// KERIPO MOD
+	//if ((input = fopen(SAVEFILE, "r")) == NULL)
+	if ((input = fopen(TSAVEFILE, "r")) == NULL)
 	{
-		perror(SAVEFILE);
+		// KERIPO MOD
+		//perror(SAVEFILE);
+		perror(TSAVEFILE);
 		return;
 	}
 	fscanf(input, "%ld", &highScore); 
@@ -324,9 +333,13 @@ static void readHighScore()
 static void writeHighScore()
 {
 	FILE *output;
-	if ((output = fopen(SAVEFILE, "w")) == NULL)
+	// KERIPO MOD
+	//if ((output = fopen(SAVEFILE, "w")) == NULL)
+	if ((output = fopen(TSAVEFILE, "w")) == NULL)
 	{
-		perror(SAVEFILE);
+		// KERIPO MOD
+		//perror(SAVEFILE);
+		perror(TSAVEFILE);
 		return;
 	}
 	fprintf(output, "%ld", highScore);

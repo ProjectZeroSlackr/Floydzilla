@@ -32,6 +32,9 @@ Remeber: The objective of the game is to catch all of the bombs, as well as
 having fun!.
 */
 
+// KERIPO MOD
+#include "_mods.h"
+
 #include "pz.h"
 #include <stdio.h>
 #include <math.h>
@@ -392,9 +395,13 @@ void new_kaboom_window (void)
   bomb_caught = 0; /*counter for how many caught bombs*/
   bucket[0].width = bucket[1].width = bucket[2].width = screen_info.cols/10; /*bucket width*/
   bucket[0].height = bucket[1].height = bucket[2].height = screen_info.cols/30; /*bucket height*/
-  man_buffer = GrLoadImageFromFile("man.bmp", 0);
-  bucket_buffer = GrLoadImageFromFile("bucket.bmp", 0);
-  bomb_buffer = GrLoadImageFromFile("bomb.bmp", 0);
+// KERIPO MOD
+  //man_buffer = GrLoadImageFromFile("man.bmp", 0);
+  //bucket_buffer = GrLoadImageFromFile("bucket.bmp", 0);
+  //bomb_buffer = GrLoadImageFromFile("bomb.bmp", 0);
+  man_buffer = GrLoadImageFromFile(KABOOM_MAN_BMP, 0);
+  bucket_buffer = GrLoadImageFromFile(KABOOM_BUCKET_BMP, 0);
+  bomb_buffer = GrLoadImageFromFile(KABOOM_BOMB_BMP, 0);
   bombdrop = 1000;
   bomb_size = ((man_width * 75)/100);
   buckets_alive = 3;

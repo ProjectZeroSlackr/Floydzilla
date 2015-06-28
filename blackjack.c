@@ -28,6 +28,9 @@
  *
  */
 
+// KERIPO MOD
+#include "_mods.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -35,12 +38,14 @@
 #include "pz.h"
 
 
+// KERIPO MOD
+// Already defined in "_mods.h"
 //Save file
-#ifdef IPOD
-	#define SAVEFILE "/home/.blackjack"
-#else
-	#define SAVEFILE ".blackjack"
-#endif
+//#ifdef IPOD
+	//#define SAVEFILE "/home/.blackjack"
+//#else
+	//#define SAVEFILE ".blackjack"
+//#endif
 
 //Defines
 #define VERSION			"1.00 RC3"
@@ -459,9 +464,13 @@ static void check_win()
 static void readPot()
 {
 	FILE *input;
-	if ((input = fopen(SAVEFILE, "r")) == NULL)
+	// KERIPO MPD
+	//if ((input = fopen(SAVEFILE, "r")) == NULL)
+	if ((input = fopen(BJSAVEFILE, "r")) == NULL)
 	{
-		perror(SAVEFILE);
+		// KERIPO MOD
+		//perror(SAVEFILE);
+		perror(BJSAVEFILE);
 		return;
 	}
 	fscanf(input, "%li", &player_pot);
@@ -477,9 +486,13 @@ static void readPot()
 static void writePot()
 {
 	FILE *output;
-	if ((output = fopen(SAVEFILE, "w")) == NULL)
+	// KERIPO MOD
+	//if ((output = fopen(SAVEFILE, "w")) == NULL)
+	if ((output = fopen(BJSAVEFILE, "w")) == NULL)
 	{
-		perror(SAVEFILE);
+		// KERIPO MOD
+		//perror(SAVEFILE);
+		perror(BJSAVEFILE);
 		return;
 	}
 	fprintf(output, "%li", player_pot);

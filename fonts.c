@@ -16,6 +16,9 @@
  * Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+// KERIPO MOD
+#include "_mods.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -28,13 +31,16 @@
 #include "ipod.h"
 #include "settings.h"
 
+// KERIPO MOD
+// defined in "_mods.h"
+/*
 #define FONTCONF "font.lst"
 #ifdef IPOD
 #define FONTDIR "/usr/share/fonts/"
 #else
 #define FONTDIR "fonts/"
 #endif
-
+*/
 
 typedef struct _fontlist_st {
 	char file[128];

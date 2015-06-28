@@ -36,15 +36,18 @@ const char * text_keypad_buttons_short_n[] = { "10.-", "2", "3", "4", "5", "6", 
 static int text_keypad_row = 0;
 static int text_keypad_curr_btn = 0;
 static int text_keypad_curr_char = 0;
-static int text_keypad_ptext = 0; /* predictive text mode */
-static GR_TIMER_ID text_keypad_ptext_tid; /* predictive text on/off timer */
+// KERIPO MOD
+//static int text_keypad_ptext = 0; /* predictive text mode */
+//static GR_TIMER_ID text_keypad_ptext_tid; /* predictive text on/off timer */
 
 /* ptext.c */
+// KERIPO MOD
+/*
 extern int text_ptext_inited(void);
 extern int text_ptext_init(void);
 extern void text_ptext_free(void);
 extern int text_ptext_predict(char * buf, int pos, int method);
-
+*/
 
 /* NON-IMPLEMENTATION-SPECIFIC KEYPAD FUNCTIONS */
 
@@ -66,9 +69,12 @@ void text_keypad_print_mode_status(GR_GC_ID gc)
 		for (i=0; i<3; i++) {
 			text_keypad_print_status(gc, (char *)text_keypad_buttons_short[text_keypad_row*3 + i], (text_get_width()/4)*i+1, text_get_height()-4);
 		}
+// KERIPO MOD
+/*
 		if (text_keypad_ptext) {
 			text_keypad_print_status(gc, "P", text_get_width()-10, text_get_height()-4);
 		}
+*/
 	}
 	if (text_keypad_curr_char != 0) {
 		if (text_get_numeric_mode() != 0) {
@@ -95,9 +101,12 @@ void text_keypad_print_mode_status_4g(GR_GC_ID gc)
 {
 	char s[2];
 	GrLine(text_get_bufwid(), gc, 0, text_get_height()-16, text_get_width(), text_get_height()-16);
+// KERIPO MOD
+/*
 	if (text_keypad_ptext) {
 		text_keypad_print_status(gc, "P", text_get_width()-10, text_get_height()-4);
 	}
+*/
 	if (text_keypad_curr_char != 0) {
 		if (text_get_numeric_mode() != 0) {
 			s[0] = text_keypad_buttons_n[text_keypad_curr_btn][text_keypad_curr_char - 1];
@@ -121,11 +130,13 @@ void text_keypad_print_mode_status_4g(GR_GC_ID gc)
 
 void text_keypad_output(void)
 {
-	int l;
+	//int l;
 	if (text_keypad_curr_char != 0)
 	{
 		if (text_get_numeric_mode() != 0) {
 			text_output_char(text_keypad_buttons_n[text_keypad_curr_btn][text_keypad_curr_char - 1]);
+		// KERIPO MOD
+		/*
 		} else if (text_keypad_ptext) {
 			if (text_keypad_curr_btn == 0) {
 				text_output_char(text_keypad_buttons[text_keypad_curr_btn][text_keypad_curr_char - 1]);
@@ -136,6 +147,7 @@ void text_keypad_output(void)
 				text_set_iposition(text_get_iposition() - l);
 				text_set_length(text_get_length() - l);
 			}
+		*/
 		} else {
 			text_output_char(text_keypad_buttons[text_keypad_curr_btn][text_keypad_curr_char - 1]);
 		}
@@ -160,7 +172,9 @@ void text_keypad_reset(void)
 void text_keypad_push(int n)
 {
 	/* this takes 0-8, NOT 1-9 */
-	if ((n != 0) && (text_keypad_ptext || (text_get_numeric_mode() != 0))) {
+	// KERIPO MOD
+	//if ((n != 0) && (text_keypad_ptext || (text_get_numeric_mode() != 0))) {
+	if ((n != 0) && ((text_get_numeric_mode() != 0))) {
 		text_keypad_output();
 		text_keypad_curr_btn = n;
 		text_keypad_curr_char = 1;
@@ -175,6 +189,7 @@ void text_keypad_push(int n)
 	}
 }
 
+/*
 void text_keypad_ptext_toggle(void)
 {
 	text_keypad_ptext = (!text_keypad_ptext);
@@ -188,6 +203,7 @@ void text_keypad_ptext_toggle(void)
 		text_ptext_free();
 	}
 }
+*/
 
 
 /* IMPLEMENTATION-SPECIFIC */
@@ -294,26 +310,34 @@ int text_keypad_fbevent(GR_EVENT *event)
 	switch (event->type)
 	{
 	case GR_EVENT_TYPE_TIMER:
+		// KERIPO MOD
+		/*
 		if (((GR_EVENT_TIMER *)event)->tid == text_keypad_ptext_tid) {
 			GrDestroyTimer(text_keypad_ptext_tid);
 			text_keypad_ptext_tid = 0;
 			text_keypad_ptext_toggle();
 			text_draw();
 		} else {
+		*/
 			text_keypad_output();
 			text_draw();
-		}
+		//}
 		break;
 	case GR_EVENT_TYPE_KEY_DOWN:
+		// KERIPO MOD
+		/*
 		if ( ((event->keystroke.ch) == '\n') || ((event->keystroke.ch) == '\r') ) {
 			text_keypad_ptext_tid = GrCreateTimer(text_get_wid(), 500);
 		} else {
+		*/
 			text_keypad_fbpush(text_keypad_button_map(event->keystroke.ch));
 			text_reset_timer(1000);
 			text_draw();
-		}
+		//}
 		break;
 	case GR_EVENT_TYPE_KEY_UP:
+		// KERIPO MOD
+		/*
 		if ( ((event->keystroke.ch) == '\n') || ((event->keystroke.ch) == '\r') ) {
 			if (text_keypad_ptext_tid) {
 				GrDestroyTimer(text_keypad_ptext_tid);
@@ -324,6 +348,7 @@ int text_keypad_fbevent(GR_EVENT *event)
 				text_draw();
 			}
 		}
+		*/
 		break;
 	}
 	return 1;
@@ -342,11 +367,14 @@ int text_keypad_4gevent(GR_EVENT *event)
 				text_reset_timer(1000);
 				text_draw();
 			}
+		// KERIPO MOD
+		/*
 		} else if (((GR_EVENT_TIMER *)event)->tid == text_keypad_ptext_tid) {
 			GrDestroyTimer(text_keypad_ptext_tid);
 			text_keypad_ptext_tid = 0;
 			text_keypad_ptext_toggle();
 			text_draw();
+		*/
 		} else {
 			text_keypad_output();
 			text_draw();
@@ -356,7 +384,8 @@ int text_keypad_4gevent(GR_EVENT *event)
 		switch (event->keystroke.ch) {
 		case '\n':
 		case '\r':
-			text_keypad_ptext_tid = GrCreateTimer(text_get_wid(), 500);
+			// KERIPO MOD
+			//text_keypad_ptext_tid = GrCreateTimer(text_get_wid(), 500);
 			break;
 		case 'l':
 		case 'r':
@@ -376,6 +405,8 @@ int text_keypad_4gevent(GR_EVENT *event)
 		}
 		break;
 	case GR_EVENT_TYPE_KEY_UP:
+		// KERIPO MOD
+		/*
 		if ( ((event->keystroke.ch) == '\n') || ((event->keystroke.ch) == '\r') ) {
 			if (text_keypad_ptext_tid) {
 				GrDestroyTimer(text_keypad_ptext_tid);
@@ -386,6 +417,7 @@ int text_keypad_4gevent(GR_EVENT *event)
 				text_draw();
 			}
 		}
+		*/
 		break;
 	}
 	return 1;

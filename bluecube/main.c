@@ -17,6 +17,9 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+// KERIPO MOD
+#include "../_mods.h"
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -29,7 +32,9 @@
 #include "../ipod.h"
 #include "../pz.h"
 
-#define HIGHSCORE ".bluecube"
+// KERIPO MOD
+// defined in "_mods.h"
+//#define HIGHSCORE ".bluecube"
 
 static void tetris_do_draw(void);
 static int tetris_do_keystroke(GR_EVENT *);

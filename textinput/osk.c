@@ -156,18 +156,25 @@ void text_osk_init(void)
 	text_osk_dead_key_state = 0;
 	text_osk_current_key = (text_get_numeric_mode() != 0)?0:55;
 	text_osk_gc = pz_get_gc(1);
-	if (access("/usr/share/fonts/SeaChelUnicode.fnt", R_OK) == 0) {
+// KERIPO MOD
+	//if (access("/usr/share/fonts/SeaChelUnicode.fnt", R_OK) == 0) {
+	if (access("/usr/share/fonts/Unicode.fnt", R_OK) == 0) {
 		text_draw_message(_("Loading keyboard font..."));
-		set_font("/usr/share/fonts/SeaChelUnicode.fnt", 9, text_osk_gc, 1);
-	} else if (access("/usr/share/fonts/SeaChel.fnt", R_OK) == 0) {
+		//set_font("/usr/share/fonts/SeaChelUnicode.fnt", 9, text_osk_gc, 1);
+		set_font("/usr/share/fonts/Unicode.fnt", 9, text_osk_gc, 1);
+	//} else if (access("/usr/share/fonts/SeaChel.fnt", R_OK) == 0) {
+	} else if (access("/usr/share/fonts/EspySans-13.fnt", R_OK) == 0) {
 		text_draw_message(_("Loading keyboard font..."));
-		set_font("/usr/share/fonts/SeaChel.fnt", 9, text_osk_gc, 1);
+		//set_font("/usr/share/fonts/SeaChel.fnt", 9, text_osk_gc, 1);
+		set_font("/usr/share/fonts/EspySans-13.fnt", 9, text_osk_gc, 1);
 	}
 }
 
 void text_osk_free(void)
 {
-	if ( (access("/usr/share/fonts/SeaChel.fnt", R_OK) == 0) || (access("/usr/share/fonts/SeaChelUnicode.fnt", R_OK) == 0) ) {
+// KERIPO MOD
+	//if ( (access("/usr/share/fonts/SeaChel.fnt", R_OK) == 0) || (access("/usr/share/fonts/SeaChelUnicode.fnt", R_OK) == 0) ) {
+	if ( (access("/usr/share/fonts/Unicode.fnt", R_OK) == 0) || (access("/usr/share/fonts/EspySans-13.fnt", R_OK) == 0) ) {
 		destroy_font(1);
 	}
 	GrDestroyGC(text_osk_gc);

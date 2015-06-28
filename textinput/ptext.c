@@ -24,6 +24,9 @@
  * database you have to #define PTEXT_DB somewhere in the Makefile.
  */
 
+// KERIPO MOD
+#include "../_mods.h"
+ 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -36,7 +39,9 @@ typedef struct text_ptext_dict_ {
 	char * numberstring;
 	char * word;
 } text_ptext_dict;
-const char * text_ptext_file = "/usr/share/dict/ptextwords";
+// KERIPO MOD
+//const char * text_ptext_file = "/usr/share/dict/ptextwords";
+const char * text_ptext_file = PTEXT_WORDS;
 static text_ptext_dict * text_ptext_dictionary;
 static int text_ptext_dict_size = 0;
 static int text_ptext_dict_real_size = 0;
@@ -44,7 +49,9 @@ static int text_ptext_dict_real_size = 0;
 #else
 
 #include "../sqlite/sqlite3.h"
-const char * text_ptext_file = "/etc/ptext.db";
+// KERIPO MOD
+//const char * text_ptext_file = "/etc/ptext.db";
+const char * text_ptext_file = PTEXT_DB;
 static sqlite3 * text_ptext_db = NULL;
 
 #endif

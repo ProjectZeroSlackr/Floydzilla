@@ -4,6 +4,9 @@
  *	Modified by djaconil for the iPod
  */
 
+// KERIPO MOD
+#include "../_mods.h"
+ 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -16,7 +19,9 @@
 #include "../ipod.h"
 #include "../pz.h"
 
-#define LASTGAME ".tuxchess"
+// KERIPO MOD
+// defined in "_mods.h"
+//#define LASTGAME ".tuxchess"
 
 #define MWINCLUDECOLORS
 #include "nano-X.h"

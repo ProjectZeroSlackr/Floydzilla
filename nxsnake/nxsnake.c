@@ -18,6 +18,9 @@
    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
+// KERIPO MOD
+#include "../_mods.h"
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -1143,8 +1146,9 @@ void draw_boot_image()
 
 int load_image()
 {
-    
-	if (!(boot_image_id = GrLoadImageFromFile("/nxsnake/boot_image.gif", 0))) {
+	// KERIPO MOD
+	//if (!(boot_image_id = GrLoadImageFromFile("/nxsnake/boot_image.gif", 0))) {
+	if (!(boot_image_id = GrLoadImageFromFile(NXSNAKE_BOOT_IMG, 0))) {
                 fprintf(stderr, "Can't load boot image file\n");
                 return 0;
         }
@@ -1152,8 +1156,10 @@ int load_image()
                 fprintf(stderr, "Can't load boot image file\n");
                 return 0;
         }*/
-    
-    if (!(banner_image_id = GrLoadImageFromFile("/nxsnake/banner_image.gif", 0))) {
+
+	// KERIPO MOD
+    //if (!(banner_image_id = GrLoadImageFromFile("/nxsnake/banner_image.gif", 0))) {		
+    if (!(banner_image_id = GrLoadImageFromFile(NXSNAKE_BANNER_IMG, 0))) {
                 fprintf(stderr, "Can't load header image file\n");
                 return 0;
         }

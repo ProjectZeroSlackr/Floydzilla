@@ -2,6 +2,9 @@
 keyman
 */
 
+// KERIPO MOD
+#include "_mods.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -139,8 +142,11 @@ static struct yomidata {
 	char tokud[500];
 }wyomidata;
 
-static char pathimage[]="/etc/KMData/pict.gif";
-static char pathmap[]="/etc/KMData/mapdata/stage1.txt";
+// KERIPO MOD
+//static char pathimage[]="/etc/KMData/pict.gif";
+//static char pathmap[]="/etc/KMData/mapdata/stage1.txt";
+static char pathimage[]=KM_PICT;
+static char pathmap[]=KM_MAP_START;
 
 static void kmbitmap(void){
 	
@@ -579,8 +585,11 @@ static void opencard(void){
 }
 
 static void startgame(void){
-	if (training==0){sprintf(pathmap,"/etc/KMData/mapdata/stage%d.txt",wmenukey.STAGE);}
-	else if (training==1){tranum++;sprintf(pathmap,"/etc/KMData/tra/tra%d.txt",tranum);}
+// KERIPO MOD
+	//if (training==0){sprintf(pathmap,"/etc/KMData/mapdata/stage%d.txt",wmenukey.STAGE);}
+	//else if (training==1){tranum++;sprintf(pathmap,"/etc/KMData/tra/tra%d.txt",tranum);}
+	if (training==0){sprintf(pathmap,KM_MAP,wmenukey.STAGE);}
+	else if (training==1){tranum++;sprintf(pathmap,KM_TRAIN,tranum);}
 	switch (wmenukey.KEY){
 		case 1: wsetkey.KLEFT='l';
 			wsetkey.KRIGHT='r';
@@ -1060,7 +1069,9 @@ static int keyman_handle_event(GR_EVENT * event)
 			
 			GrSetGCForeground(keyman_gc, BLACK);
 			GrText(keyman_wid,keyman_gc,50,48,"Please Copy",-1,GR_TFASCII|GR_TFTOP);
-			GrText(keyman_wid,keyman_gc,30,68,"KMData folder to /etc",-1,GR_TFASCII|GR_TFTOP);
+			// KERIPO MOD
+			//GrText(keyman_wid,keyman_gc,30,68,"KMData folder to /etc",-1,GR_TFASCII|GR_TFTOP);
+			GrText(keyman_wid,keyman_gc,30,68,"KMData folder to Misc",-1,GR_TFASCII|GR_TFTOP);
 			GrText(keyman_wid,keyman_gc,50,100,"Click to Quit",-1,GR_TFASCII|GR_TFTOP);
 			break;
 		}

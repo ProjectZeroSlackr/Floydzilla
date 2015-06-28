@@ -20,6 +20,7 @@ static GR_TIMER_ID		credits_timer;
 
 static char *stream = NULL; 
 static char *cnames[]={"Floydzilla", "by Dan Long", "DansFloyd.com",
+		"Modded by Keripo", "for ZeroSlackr",
 		"IPL DEVELOPERS", 
 		"Bernard Leach", "Matthew J. Sahagian",
 		"Courtney Cavin", "matz-josh", "Matthis Rouch",

@@ -16,6 +16,9 @@
  * Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+// KERIPO MOD
+#include "_mods.h"
+ 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -91,7 +94,9 @@ extern void new_iboy2mini_window(void);
 extern void new_iboycolor_window(void);
 extern void new_iboynano_window(void);
 */
-extern void new_iboy_window(void);
+// KERIPO MOD
+// obsolete via ZeroSlackr
+//extern void new_iboy_window(void);
 extern void new_idw_window(void);
 extern void new_factor_window(void);
 extern void new_metronome_window(void);
@@ -219,6 +224,7 @@ static item_st tools_menu[] = {
 	{N_("Clock"), world_clock_menu, SUB_MENU_HEADER},
 	{N_("PodDraw"), new_poddraw_window, ACTION_MENU},
 	{N_("PodWrite"), new_podwrite_window, ACTION_MENU},
+	{N_("Timer"), new_stopwatch_window, ACTION_MENU},
 	{0}
 };
 
@@ -228,7 +234,6 @@ static item_st apps_menu[] = {
 	{N_("MultiConvert"), new_multiconvert_window, ACTION_MENU},
 	{N_("Periodic Table"), new_periodic_window, ACTION_MENU},
 	{N_("Temp Converter"), new_conv_window, ACTION_MENU},
-	{N_("Timer"), new_stopwatch_window, ACTION_MENU},
 	{N_("Tone Dialer"), new_dialer_window, ACTION_MENU},
 	{N_("Tone Generator"), new_generator_window, ACTION_MENU},
 	{0}
@@ -260,10 +265,12 @@ static item_st extras_menu[] = {
 	{N_("Recordings"), recording_menu, SUB_MENU_HEADER},
 	{N_("Games"), games_menu, SUB_MENU_HEADER},
 	{N_("Tools"), tools_menu, SUB_MENU_HEADER},
-	{N_("Useful Apps"), apps_menu, SUB_MENU_HEADER},
-	{N_("Fun Stuff"), stuff_menu, SUB_MENU_HEADER},
+	{N_("Apps"), apps_menu, SUB_MENU_HEADER},
+	{N_("Other"), stuff_menu, SUB_MENU_HEADER},
 	//{N_("DooM"), new_idoom_window, ACTION_MENU},
-	{N_("iBoy"), new_iboy_window, ACTION_MENU},
+	// KERIPO MOD
+	// obsolete via ZeroSlackr
+	//{N_("iBoy"), new_iboy_window, ACTION_MENU},
 	{0}
 };
 
@@ -391,7 +398,7 @@ static item_st itunes_menu[] = {
 #endif /* !MPDC */
 
 static item_st power_menu[] = {
-	{N_("Quit FloydZilla"), quit_podzilla, ACTION_MENU},
+	{N_("Quit Floyd2illa"), quit_podzilla, ACTION_MENU},
 #ifdef NEVER /* just to show where this should go */
 	{N_("Sleep iPod"), sleep, ACTION_MENU};
 #endif
@@ -402,7 +409,9 @@ static item_st power_menu[] = {
 
 static item_st main_menu[] = {
 #ifdef MPDC
-	{N_("Music"), mpdc_menu, SUB_MENU_HEADER},
+	// KERIPO MOD
+	//{N_("Music"), mpdc_menu, SUB_MENU_HEADER},
+	{N_("Music Player Daemon"), mpdc_menu, SUB_MENU_HEADER},
 #else
 	{N_("Music"), itunes_menu, SUB_MENU_HEADER},
 #endif /* MPDC */
@@ -412,7 +421,9 @@ static item_st main_menu[] = {
 	{N_("Now Playing"), mpd_currently_playing, ACTION_MENU},
 #endif /* MPDC */
 	{N_("File Browser"), new_browser_window, ACTION_MENU | ARROW_MENU},
-	{N_("Run..."), new_run_window, ACTION_MENU},
+// KERIPO MOD
+// rather obsolete and just freezes things
+	//{N_("Run..."), new_run_window, ACTION_MENU},
 	{N_("Power"), power_menu, SUB_MENU_HEADER},
 	{0}
 };
@@ -495,7 +506,9 @@ void new_menu_window()
 	GrSelectEvents(menu_wid, GR_EVENT_MASK_EXPOSURE| GR_EVENT_MASK_KEY_UP|
 			GR_EVENT_MASK_KEY_DOWN | GR_EVENT_MASK_TIMER);
 
-	menuz = menu_init(menu_wid, "[:Floyd2illA:]", 0, 0, screen_info.cols,
+	// KERIPO MOD
+	//menuz = menu_init(menu_wid, "[:Floyd2illA Final:]", 0, 0, screen_info.cols,
+	menuz = menu_init(menu_wid, PZ_TITLE, 0, 0, screen_info.cols,
 			screen_info.rows - (HEADER_TOPLINE + 1), NULL,
 			main_menu, ASCII | TRANSLATE);
 

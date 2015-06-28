@@ -1,3 +1,6 @@
+// KERIPO MOD
+#include "../_mods.h"
+
 #include <string.h>
 #include <sys/time.h>
 #include <stdlib.h>
@@ -162,7 +165,9 @@ void tstep_init(void)
 	int i=0;
 	tstep_g = (tstep_global *)malloc(sizeof(tstep_global));
 	newSong(); //initialize variables to zero
-	loadSong( "/hp/ddr/metallo.dwi" , NULL );
+	// KERIPO MOD
+	//loadSong( "/hp/ddr/metallo.dwi" , NULL );
+	loadSong( DWI_SAMPLE , NULL );
 		printf("Title: %s\n",tstep_g->songTitle);
 		printf("Artist: %s\n",tstep_g->artist);
 		printf("BPM: %d\n",tstep_g->startBPM);

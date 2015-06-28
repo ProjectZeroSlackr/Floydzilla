@@ -1,9 +1,14 @@
+// KERIPO MOD
+#include "../mods.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "nano-X.h"
 
-#define IMAGE_PATH "demos/tuxchess/images"
+// KERIPO MOD
+// defined in "_mods.h"
+//#define IMAGE_PATH "demos/tuxchess/images"
 
 extern GR_IMAGE_ID     board_image_id;
 extern GR_IMAGE_INFO   board_info;
