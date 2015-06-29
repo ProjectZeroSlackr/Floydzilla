@@ -1,40 +1,63 @@
-**This Installation is for Windows Only. If you try and**
-**install this on a Mac formatted iPod, it will not work**
+Last updated: Apr 23, 2008
+~Keripo
 
-Floydzilla is a build of Podzilla, done by DansFloyd. 
-http://www.ipodlinux.org/Podzilla
+All code/scripts written by Keripo are licensed under
+GNU GPL - see License.txt. For the licensing of the
+software/application, refer to the documents found in
+Misc/Docs.tar.gz or the license that comes with the
+original/ported software.
 
-ATTENTION:
-IF YOU WANT TO PLAY MUSIC WITH LINUX, YOU CANNOT HAVE ANY PODCASTS ON YOUR IPOD 
-YOU MUST CLEAR ALL PODCASTS OFF YOUR IPOD, IF YOU WANT TO PLAY MUSIC WITH LINUX
+Overview:
+Floydzilla
+- Floydzilla (latest version called "Floyd2illA") is
+  a customized build of podzilla legacy (PZ0).
+- It contains numerous (unstable) games and applications
+  that were not part of the official podzilla legacy
+  but can mostly now be found as podzilla2 modules.
+- DansFloyd (the creator) stopped working on Floydzilla
+  a while after the introduction of podzilla2 but before
+  that, Floydzilla was arguably the most popular and
+  widely used zilla, notable for its added games and
+  support for iBoy.
+- Since it is based off podzilla legacy, Floydzilla
+  will not run smoothly on iPod videos (5G/5.5Gs),
+  which were introduced after PZ0 was abandoned.
+- The ZeroSlackr version is built with MPD support but
+  MPD itself must be initiated externally first (see the
+  MPD documentation).
+For more information, see:
+- http://www.dansfloyd.com/floydzilla.html
+- http://ipodlinux.org/wiki/Floydzilla
+- http://ipodlinux.org/wiki/Podzillae
 
-INSTALLING FOR WINDOWS:
-For Further Help goto http://dansfloyd.com/help.html
+Usage:
+- FastLaunch through "Zillae > Floydzilla".
 
-1. Make Sure you have Linux installed on your iPod
-2. Run the Floydzilla installer, choose your iPods Drive Letter
-3. Once Finished...
-4. unmount the iPod, restart (http://ipodlinux.org/key_combinations)
-5. Boot into Linux by holding Rewind
-6. Read INFO.txt
-7. Enjoy! :D 
 
-To get the Power Off feature to work properly:
-You need to boot into Floydzilla at least once.
-Then restart the ipod and go into Apple's firmware,
-You can then reboot back into Floydzilla, 
-and the Power off feature should be working.
+Original:
+- Authors: DansFloyd (Daniel Long)
+- Source: Website
+- Link:
+  http://www.dansfloyd.com/floydzilla.html
+  http://dansfloyd.com/floydzilla-source.zip
+  (source repacked)
+- Date: Dec 11, 2006
+- Version: Final release "[:Floyd2illA Final:]"
 
------------------------------------------------------------------------------------------
-***UPGRADING? no need to uninstall... just overwrite the old with the new, and your up to date***
------------------------------------------------------------------------------------------
-Im allways updateing, so check the website for more info http://www.dansfloyd.com
-or the Wiki http://www.ipodlinux.org/FloydZilla
-ENJOY!
------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------
-SPECIAL THANKS TO:
-Pokeon, KDE, v1p3r, bholland , jonrelay, the IPL team, and all the guys/gals 
-that took the time to write us SWEET apps, games, and hacks!!
+ZS Version:
+- Modder: Keripo
+- Type: ZS Recompile
+- Date: Apr 23, 2008
+- Version: B X.X
 
-   -DansFloyd
+Modifications:
+- made ZS friendly
+
+Launch Module:
+- FastLaunches Floyd2illA
+
+To do:
+- none
+
+Changelog:
+[keep untouched till beta release]
